@@ -5,8 +5,7 @@ def call(Closure body) {
         }
         
         stage('General build step') {
-            sh "echo Test"
-            sh "echo name: ${config.name}"
+            sh "echo Build!"
             sh "pwd"
             sh "printenv"
         }
