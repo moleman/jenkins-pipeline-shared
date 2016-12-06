@@ -5,7 +5,7 @@ def call(Closure body) {
         }
         
         stage('General build step') {
-            sh "echo Build!"
+            sh "echo Build! Branch test-branch"
             sh "pwd"
             sh "printenv"
         }
