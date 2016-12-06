@@ -7,7 +7,9 @@ def call(body) {
 
     // now build, based on the configuration provided
     node {
-        sh "echo Test"
-        sh "echo name: ${config.name}"
+        stage('Build') {
+            sh "echo Test"
+            sh "echo name: ${config.name}"
+        }
     }
 }
