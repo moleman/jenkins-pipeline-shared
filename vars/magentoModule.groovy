@@ -1,17 +1,18 @@
-def call(body) {
-    // evaluate the body block, and collect configuration into the object
-    def config = [:]
-    body.resolveStrategy = Closure.DELEGATE_FIRST
-    body.delegate = config
-    body()
-
-    // now build, based on the configuration provided
+def call(Closure body) {
     node {
-        stage('Build') {
+        stage('Generate Composer Package') {
+            build 'generate composer package'
+        }
+        
+        stage('General build step') {
             sh "echo Test"
             sh "echo name: ${config.name}"
             sh "pwd"
             sh "printenv"
+        }
+        
+        stage('Job specific build step') {
+            body()
         }
     }
 }
