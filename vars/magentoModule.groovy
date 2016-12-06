@@ -10,6 +10,8 @@ def call(body) {
         stage('Build') {
             sh "echo Test"
             sh "echo name: ${config.name}"
+            sh "pwd"
+            sh "printenv"
         }
     }
 }
