@@ -5,7 +5,7 @@ def call() {
     
     stage('Code check') {
         stage('Validate Composer') {
-            sh "composer validate"
+            sh "composer validate --no-check-publish"
         }
 
         stage('PHP Lint') {
